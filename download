@@ -1,0 +1,7 @@
+# API base URL of your backend (Hermes / VPS). No trailing slash.
+# Example: https://api.yourdomain.com  or  http://YOUR_SERVER_IP:8787
+NEXT_PUBLIC_API_URL=http://127.0.0.1:8787
+
+# Shown in UI
+NEXT_PUBLIC_APP_NAME=Stable Launchpad
+NEXT_PUBLIC_CHAIN_ID=988

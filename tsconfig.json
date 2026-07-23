@@ -1,0 +1,52 @@
+# Stable Launchpad — Vercel Frontend
+
+Upload **folder ini** ke Vercel (atau import Git repo yang isinya folder ini).
+
+## Env vars (Vercel → Settings → Environment Variables)
+
+| Name | Example | Wajib |
+|------|---------|-------|
+| `NEXT_PUBLIC_API_URL` | `https://api.your-vps.com` atau `http://IP:8787` | **Ya** |
+| `NEXT_PUBLIC_APP_NAME` | `Stable Launchpad` | optional |
+| `NEXT_PUBLIC_CHAIN_ID` | `988` | optional |
+
+> Tanpa `NEXT_PUBLIC_API_URL`, UI tidak bisa load trenches / quote.
+
+## Deploy cepat
+
+### Opsi A — Vercel CLI
+```bash
+npm i -g vercel
+cd vercel-frontend
+vercel
+# set env NEXT_PUBLIC_API_URL
+vercel --prod
+```
+
+### Opsi B — Dashboard
+1. New Project → Upload / import
+2. Framework: **Next.js**
+3. Root directory: folder ini
+4. Add env `NEXT_PUBLIC_API_URL`
+5. Deploy
+
+## API yang dipakai
+
+- `GET /api/health`
+- `GET /api/config`
+- `GET /api/stats`
+- `GET /api/tokens`
+- `GET /api/token/:addr`
+- `GET /api/quote/buy?curve=&amount=`
+- `GET /api/quote/sell?curve=&amount=`
+
+API server dijalankan di VPS/Hermes (bukan Vercel).
+
+## Local dev
+
+```bash
+cp .env.example .env.local
+# edit NEXT_PUBLIC_API_URL
+npm install
+npm run dev
+```
